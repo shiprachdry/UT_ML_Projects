@@ -1,0 +1,370 @@
+---
+title: "Final project"
+output: pdf_document
+date: "2023-11-23"
+---
+
+```{r setup, include=FALSE,echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(igraph)
+library(arules)  # has a big ecosystem of packages built around it
+library(arulesViz)
+```
+
+## Question 1: Use the cars_big.csv to an external site. dataset to build a predictive model pricing cars based on its features
+
+
+# Step 1:Data Collection
+1. Using cars_big data set that includes observations for the dependent and independent variables.
+
+2. Identify the dependent variable (price) and the independent variables (all other numeric variables).
+
+```{r include=FALSE,echo=FALSE}
+cars <- read_csv("C:/Users/I068117/UT_Machine Learning/cars_big.csv")
+#dropping the first column as using the default index
+cars <- cars[, -1]
+```
+# Step 2: Data Exploration & Visualization
+
+```{r echo=FALSE}
+# distribution of price with color
+
+avg_price_by_color <- tapply(cars$price, cars$color, mean)
+
+barplot(sort(avg_price_by_color), xlab = "Color", ylab = "Count", col = "lightblue")
+
+#As price varies with the color of the car, we can put the colors in 2 buckets Premium colors - White, Black, Blue and non-premium colors - Gold, Turquoise, Beige
+
+color_mapping <- c(Beige = 0, Black = 1, Blue=1, Bronze = 0,  Brown=1, Gold=0, Gray=0, Green=1,Purple=0, Red=1, Silver=1,Turquoise=0,unsp=1,White=1, Yellow=0)
+
+cars$colorPremium <- color_mapping[cars$color]
+  
+```
+
+# Step 3: Data cleaning & feature selection
+
+Explore and clean the dataset.Check for missing values, outliers, and other anomalies.
+
+Assumptions Check:Verify that the assumptions of multiple linear regression are met, including linearity, independence, homoscedasticity, and normality of residuals.
+
+```{r echo=FALSE}
+cars$trim <- sapply(strsplit(as.character(cars$trim), " "), function(x) x[1])
+cars$trim <- as.numeric(cars$trim)
+
+cars$displacement <- sapply(strsplit(as.character(cars$displacement), " "), function(x) x[1])
+cars$displacement <- as.numeric(cars$displacement)
+
+cars$isOneOwner <- as.numeric(cars$isOneOwner)
+
+cars <- cars[, -2]
+
+dummy_matrix <- model.matrix(~ condition+region+soundSystem+wheelType, data = cars)
+dummy_df <- as.data.frame(dummy_matrix)
+
+cars_new = cbind(cars[sapply(cars, is.numeric)],dummy_df[,-1])
+
+# Remove rows with missing values
+cars_new <- na.omit(cars_new)
+names(cars_new)
+```
+
+# Step 4: Data visualization
+
+```{r echo=FALSE}
+#scatter plot matrix 
+pairs(~ trim + mileage + displacement + featureCount + year + colorPremium+
+price + conditionNew, cars_new)
+
+```
+```{r echo=FALSE}
+#distribution of price to check for outliers
+hist(cars_new$price, xlab = "price", col = "lightblue", border = "black")
+
+#distribution of price with new vs used cars
+
+par(mfrow=c(1,2))  # Set up a 1x3 grid for three plots
+for (i in c(0,1)) {
+  class_data1 <- cars_new[cars_new$conditionNew == i,'price']
+  hist(class_data1, main = paste("Condition New", i), xlab = "price", col = "lightblue", border = "black")
+}
+
+```
+# Interpretation: Price of new cars is higher compared to the used cars. 
+
+
+```{r echo=FALSE}
+#correlation between the features.
+
+library(corrplot)
+ 
+
+# Create a correlation heatmap
+corrplot(cor(cars_new), method = "color", type = "upper", order = "hclust", tl.col = "black", tl.srt = 45,tl.cex = 0.7)
+
+```
+
+# Interpretation:
+1. Price is strongly positively co-related with year, positively correlated with cars that are new in condition and negatively correlated with cars that are used. There is negative correlation with mileage & region_MTN. 
+
+2. There is no clear linear relationship observed between features & price, rather a more exponential relationship is observed. Linear regression model may not be the best fit model but is simple to interpret. Hence we create a simple linear model with the numeric features above.
+
+# Step 5:  Multiple linear regression model 
+```{r echo=FALSE}
+set.seed(1)
+mlr <- lm(price ~ ., data= cars_new )
+summary (mlr)
+
+```
+# Interpretation:
+1. R-square is 91% which means our model is able to explain 91% of the variance in the data. We may be adding noise and we can check with the residual error from the test set. 
+
+2. Relationship of price is statistically significant with trim, year, displacement, milage, condition new & used, color Grsy/Silver, region MTN,WNC,Wheel type steel. This would be used in feature selection. 
+
+# Step 5: multiple linear regression with selected features based on the significance as well as using a few interaction terms 
+```{r echo=FALSE}
+set.seed(1)
+mlr_2 <- lm(price ~ trim+year+mileage*displacement+ conditionNew+colorPremium+regionMtn+regionWNC+wheelTypeSteel+featureCount, data= cars_new )
+options(scipen = 999)
+summary (mlr_2)
+
+```
+# Interpretation
+
+1. We are able to get 92% of the variance with feature selection and keeping only the important ones.
+
+2. Increase of 1 year leads to an increase in price by 4320 unit
+
+3. A new car has an increase of 44213 unit in price compared to the used car
+
+4. A premium color car has a increase of an avg 1365 unit compared to other colors
+
+4. A car with wheel has a price increase of 18696 compared to the other wheel types. 
+
+#Step 5: Residual plot to see if linear model is a good fit.
+
+```{r echo=FALSE}
+plot(mlr_2)
+```
+# Interpretation
+The residual error is not normally distributed around the horizontal line. However there is no a curve/pattern in the distribution suggestion linear regression. There are also large outliers in the residual plot. While linear model is not the best fit model, it is able to explain the variance and is simple to interpret. 
+
+# Step 6: Testing the model on the test data to evaluate the performance of the model
+
+Split Data:Divide the dataset into two parts: a training set and a testing (or validation) set. The training set is used to train the model, and the testing set is used to evaluate its performance.Use the training set to fit the multiple linear regression model.Use the testing set to make predictions and evaluate the model's performance on unseen data.
+
+```{r echo=FALSE}
+set.seed(1)
+train <- sample(1:nrow(cars_new), 0.7 * nrow(cars_new))
+test <- setdiff(1:nrow(cars_new), train)
+
+train_data <- cars_new[train, ]
+test_data <- cars_new[test, ]
+
+mlr_2 <- lm(price ~ trim + year + mileage * displacement + conditionNew + colorPremium + regionMtn + regionWNC + wheelTypeSteel + featureCount, data = cars_new, subset = train)
+
+linear.pred <- predict(mlr_2, newdata = test_data)
+y.test <- test_data$price  # Assuming 'price' is the response variable in your test_data
+
+rmse <- sqrt(mean((linear.pred - y.test)^2))
+print(rmse)
+```
+
+# Interpretation
+
+The square root mean error is 12652 units, which is a reduction in the test error compared to the model with all the features. We will further try to reduce the test error by penalizing the complexity. 
+
+# Further optimizing the model to introduce polynominal interaction as the relationship between price & year is not linear.
+
+```{r echo=FALSE}
+set.seed(1)
+mlr_3 <- lm(price ~ trim + poly(year,2) + mileage*displacement + conditionNew+colorPremium+regionMtn+regionWNC+wheelTypeSteel+featureCount, data= cars_new, subset = train )
+
+linear.pred= predict(mlr_3, newdata = test_data)
+sqrt(mean((linear.pred - y.test )^2))
+```
+# Interpretation
+
+The square root mean error is reduced to 10895 units, which is a reduction in the test error compared to the model without polynomial features. .
+
+
+-------------------------------------------------------------
+
+# Question 2: Your task is to analyze this data as you see fit and to prepare a report for NutrientH20. Identify market segments that appear to stand out in their social-media audience.
+
+We do this by using association graph and K-Mean clsutering
+
+# Model 1: Using Graph Network for the tweets and segmenting customers based on the similar tweets pattern
+
+##we are categorizing the users by taking the top 3 tweets based on the number of tweets for each theme. We then find association between tweets and communities classes to draw interesting insights for e.g. 
+
+# Interesting patterns:
+1. Which tweets are most influential - we can segment the most influential users and incentivise them for social media marketing
+
+2. Segmenting the users based on the similar tweets/associated tweets based on the degree. This could tell us if a person is tweeting on outdoor, they are most likely to tweet on personal_fitness. So, we can send them targeted ads based on the close association.
+
+# Step 1: Reading the dataset. 
+Dataset is clean with no missing values. 
+
+
+
+```{r include=FALSE,echo=FALSE}
+social <- read_csv("C:/Users/I068117/UT_Machine Learning/social_marketing.csv")
+view(social)
+```
+
+# Step 2: Applying Apriori model for networks
+
+```{r echo=FALSE}
+
+#Extracting the top 3 tweets for each user.
+get_top3_columns <- function(row) {
+  col_order <- order(row, decreasing = TRUE)
+  top3_cols <- names(row)[col_order[1:3]]
+  return(top3_cols)
+}
+
+# Apply the function to each row
+top3_columns <- apply(social[, -1], 1, get_top3_columns)
+
+# Create a new dataframe with top 3 columns for each row
+top3_df <- data.frame(ID = social$...1, Top_Columns = apply(top3_columns, 2, paste, collapse = ", "))
+
+split_top3 <- strsplit(top3_df$Top_Columns, ", ")
+
+# Unlist the values separately for each row
+unlisted_top3 <- lapply(split_top3, unlist)
+# Print the result
+
+## Cast this variable as a special arules "transactions" class.
+social_trans = as(unlisted_top3, "transactions")
+summary(social_trans)
+
+socrules = apriori(social_trans, 
+	parameter=list(support=.005, confidence=.25, maxlen=3))
+
+# Look at the output... 
+summary(socrules)
+# sorting the output by lift
+
+plot(socrules)
+#Interpretation: we can see that high lift has low support
+
+social_graph = associations2igraph(subset(socrules, lift>2), associationsAsNodes = FALSE)
+igraph::write_graph(social_graph, file='social.graphml', format = "graphml")
+
+```
+
+
+```{r figurename, echo=FALSE, fig.cap="Social Tweets graph", out.width = '90%',echo=FALSE}
+knitr::include_graphics("C:/Users/I068117/UT_Machine Learning/social_communities.png")
+knitr::include_graphics("C:/Users/I068117/UT_Machine Learning/social_degree_centrality.png")
+```
+
+
+# Interpreation: Please see the graph in Gephi (attahed image)
+
+color: Degree
+Size: Betweenness Centrality 
+
+1. Tweets with most edges/degree are: Cooking, photo_sharing, food, religion, sports_phandon & politics.
+
+2. The most influential tweet theme is sports_fandom. 
+
+3. Detecting community using modularity class, we can clearly see communities of
+ a) Fitness based coomunities outdoor, personal_fitness, health_nutition
+ b) Culture based communities like sport_fandom, food, religion, parenting
+ c) Global communities like politics, travel, news, automative, computers
+ d) Generation based communities - college_uni, sports_playing, online-gaming, music, tv, art
+ e) Product based community - beauty, cooking, shopping, photo_sharing
+
+3. We can see chatter is not influential node and is associated with all the themes. 
+
+Based on the classes, we can extract the user details to target them for marketing promotions/recommendations.
+
+
+# Model 2: K- Means Clustering 
+
+# Step 1: Data visualization/distribution
+```{r echo=FALSE}
+par(mfrow=c(1,4)) 
+for (col in names(social[,-1])) {
+    hist(social[[col]], main = col, xlab = col, col = "skyblue", border = "black")
+}
+```
+
+# Interpretation:
+
+We can see that the distribution of tweets is similar for all tweet themes with a high number of users with who do not tweet on the theme, and low segment of users with high tweets. 
+
+# Step 2: Applying K-Means clustering model
+Using K-Means clustering to create clustering for each column tweet into 3 clusters based on the number of tweets. For e,g, cluster 1: users with lowest number of tweets on cooking , cluster 2: users with medium number of tweets on cooking 3. cluster 3: users with highest number of tweets on cooking. Not standardizing the data since all the units are in the same scale.
+
+```{r echo=FALSE}
+#K-Means Clustering
+set.seed(42)
+X <- social[,-1]
+
+# Center/scale the data --> we are skipping this since all the data is on the same scale.
+#social_scaled = scale(X, center=TRUE, scale=TRUE)
+
+# Run k-means with 2 clusters and 25 starts
+
+kmeans_cluster_column <- function(column, k) {
+  
+  unique_values <- length(unique(column))
+  
+  if (unique_values < k) {
+    warning("Reducing the number of clusters to the number of unique values.")
+    k <- unique_values
+  }
+  
+  result <- kmeans(column, centers = k, nstart = 25)
+  
+  return(result$cluster)
+
+}
+
+# Specify the number of clusters (k)
+k <- 3
+
+# Create a matrix of cluster assignments for each column
+cluster_matrix <- sapply(X, function(column) kmeans_cluster_column(column, k))
+
+df <- as.data.frame(cluster_matrix)
+
+```
+
+
+```{r echo=FALSE}
+library(dplyr)
+set.seed(42)
+par(mfrow=c(1,3)) 
+for (col in names(df)) {
+
+  cluster_order <- order(tapply(social[[col]], df[[col]], mean), decreasing = FALSE)
+# Apply the new order to cluster labels
+    df[[col]] <- factor(df[[col]], levels = cluster_order)
+
+    plot(social[[col]], df[[col]], main = "Scatterplot of X and Y", xlab = col, ylab = "cluster", col = "blue", pch = 16) 
+}
+
+
+```
+
+
+```{r include = FALSE, echo=FALSE}
+
+#Extracting customer segments who have lowest travel tweets to target them for a promotional discount
+
+newdf= bind_cols(social, df, .name_repair = "unique")
+
+result <- newdf %>%
+  filter(travel...40 == '2') %>%
+  pull(`...1`)
+
+view(result)
+```
+
+# Interpretation: 
+Based on the clusters, we will targer the users for ads. For example. Above we the extracting customer segments who have lowest travel tweets in results for travel discounts & promotions. 
