@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- Created by igraph -->
+  <key id="v_name" for="node" attr.name="name" attr.type="string"/>
+  <key id="v_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="v_index" for="node" attr.name="index" attr.type="double"/>
+  <key id="e_index" for="edge" attr.name="index" attr.type="double"/>
+  <key id="e_support" for="edge" attr.name="support" attr.type="double"/>
+  <key id="e_confidence" for="edge" attr.name="confidence" attr.type="double"/>
+  <key id="e_coverage" for="edge" attr.name="coverage" attr.type="double"/>
+  <key id="e_lift" for="edge" attr.name="lift" attr.type="double"/>
+  <key id="e_count" for="edge" attr.name="count" attr.type="double"/>
+  <graph id="G" edgedefault="directed">
+    <node id="n0">
+      <data key="v_name">2</data>
+      <data key="v_label">art</data>
+      <data key="v_index">2</data>
+    </node>
+    <node id="n1">
+      <data key="v_name">3</data>
+      <data key="v_label">automotive</data>
+      <data key="v_index">3</data>
+    </node>
+    <node id="n2">
+      <data key="v_name">4</data>
+      <data key="v_label">beauty</data>
+      <data key="v_index">4</data>
+    </node>
+    <node id="n3">
+      <data key="v_name">6</data>
+      <data key="v_label">chatter</data>
+      <data key="v_index">6</data>
+    </node>
+    <node id="n4">
+      <data key="v_name">7</data>
+      <data key="v_label">college_uni</data>
+      <data key="v_index">7</data>
+    </node>
+    <node id="n5">
+      <data key="v_name">8</data>
+      <data key="v_label">computers</data>
+      <data key="v_index">8</data>
+    </node>
+    <node id="n6">
+      <data key="v_name">9</data>
+      <data key="v_label">cooking</data>
+      <data key="v_index">9</data>
+    </node>
+    <node id="n7">
+      <data key="v_name">14</data>
+      <data key="v_label">family</data>
+      <data key="v_index">14</data>
+    </node>
+    <node id="n8">
+      <data key="v_name">15</data>
+      <data key="v_label">fashion</data>
+      <data key="v_index">15</data>
+    </node>
+    <node id="n9">
+      <data key="v_name">16</data>
+      <data key="v_label">food</data>
+      <data key="v_index">16</data>
+    </node>
+    <node id="n10">
+      <data key="v_name">17</data>
+      <data key="v_label">health_nutrition</data>
+      <data key="v_index">17</data>
+    </node>
+    <node id="n11">
+      <data key="v_name">19</data>
+      <data key="v_label">music</data>
+      <data key="v_index">19</data>
+    </node>
+    <node id="n12">
+      <data key="v_name">20</data>
+      <data key="v_label">news</data>
+      <data key="v_index">20</data>
+    </node>
+    <node id="n13">
+      <data key="v_name">21</data>
+      <data key="v_label">online_gaming</data>
+      <data key="v_index">21</data>
+    </node>
+    <node id="n14">
+      <data key="v_name">22</data>
+      <data key="v_label">outdoors</data>
+      <data key="v_index">22</data>
+    </node>
+    <node id="n15">
+      <data key="v_name">23</data>
+      <data key="v_label">parenting</data>
+      <data key="v_index">23</data>
+    </node>
+    <node id="n16">
+      <data key="v_name">24</data>
+      <data key="v_label">personal_fitness</data>
+      <data key="v_index">24</data>
+    </node>
+    <node id="n17">
+      <data key="v_name">25</data>
+      <data key="v_label">photo_sharing</data>
+      <data key="v_index">25</data>
+    </node>
+    <node id="n18">
+      <data key="v_name">26</data>
+      <data key="v_label">politics</data>
+      <data key="v_index">26</data>
+    </node>
+    <node id="n19">
+      <data key="v_name">27</data>
+      <data key="v_label">religion</data>
+      <data key="v_index">27</data>
+    </node>
+    <node id="n20">
+      <data key="v_name">29</data>
+      <data key="v_label">shopping</data>
+      <data key="v_index">29</data>
+    </node>
+    <node id="n21">
+      <data key="v_name">31</data>
+      <data key="v_label">sports_fandom</data>
+      <data key="v_index">31</data>
+    </node>
+    <node id="n22">
+      <data key="v_name">32</data>
+      <data key="v_label">sports_playing</data>
+      <data key="v_index">32</data>
+    </node>
+    <node id="n23">
+      <data key="v_name">33</data>
+      <data key="v_label">travel</data>
+      <data key="v_index">33</data>
+    </node>
+    <node id="n24">
+      <data key="v_name">34</data>
+      <data key="v_label">tv_film</data>
+      <data key="v_index">34</data>
+    </node>
+    <edge source="n22" target="n13">
+      <data key="e_index">1</data>
+      <data key="e_support">0.00558233950773915</data>
+      <data key="e_confidence">0.571428571428571</data>
+      <data key="e_coverage">0.00976909413854352</data>
+      <data key="e_lift">6.92923076923077</data>
+      <data key="e_count">44</data>
+    </edge>
+    <edge source="n22" target="n4">
+      <data key="e_index">2</data>
+      <data key="e_support">0.00634356762243085</data>
+      <data key="e_confidence">0.649350649350649</data>
+      <data key="e_coverage">0.00976909413854352</data>
+      <data key="e_lift">5.77021625499641</data>
+      <data key="e_count">50</data>
+    </edge>
+    <edge source="n5" target="n18">
+      <data key="e_index">3</data>
+      <data key="e_support">0.0111646790154783</data>
+      <data key="e_confidence">0.67175572519084</data>
+      <data key="e_coverage">0.0166201471707688</data>
+      <data key="e_lift">4.58819638297591</data>
+      <data key="e_count">88</data>
+    </edge>
+    <edge source="n5" target="n23">
+      <data key="e_index">4</data>
+      <data key="e_support">0.0100228368434408</data>
+      <data key="e_confidence">0.603053435114504</data>
+      <data key="e_coverage">0.0166201471707688</data>
+      <data key="e_lift">4.02478168973118</data>
+      <data key="e_count">79</data>
+    </edge>
+    <edge source="n11" target="n24">
+      <data key="e_index">5</data>
+      <data key="e_support">0.00608982491753362</data>
+      <data key="e_confidence">0.315789473684211</data>
+      <data key="e_coverage">0.0192844455721898</data>
+      <data key="e_lift">3.9383744170553</data>
+      <data key="e_count">48</data>
+    </edge>
+    <edge source="n11" target="n4">
+      <data key="e_index">6</data>
+      <data key="e_support">0.00545546815529054</data>
+      <data key="e_confidence">0.282894736842105</data>
+      <data key="e_coverage">0.0192844455721898</data>
+      <data key="e_lift">2.51384026582804</data>
+      <data key="e_count">43</data>
+    </edge>
+    <edge source="n2" target="n6">
+      <data key="e_index">7</data>
+      <data key="e_support">0.0153514336462827</data>
+      <data key="e_confidence">0.75625</data>
+      <data key="e_coverage">0.0202994163917787</data>
+      <data key="e_lift">5.2379283831283</data>
+      <data key="e_count">121</data>
+    </edge>
+    <edge source="n14" target="n16">
+      <data key="e_index">8</data>
+      <data key="e_support">0.0081197665567115</data>
+      <data key="e_confidence">0.395061728395062</data>
+      <data key="e_coverage">0.020553159096676</data>
+      <data key="e_lift">3.77897638739063</data>
+      <data key="e_count">64</data>
+    </edge>
+    <edge source="n14" target="n10">
+      <data key="e_index">9</data>
+      <data key="e_support">0.0158589190560771</data>
+      <data key="e_confidence">0.771604938271605</data>
+      <data key="e_coverage">0.020553159096676</data>
+      <data key="e_lift">3.48926570479449</data>
+      <data key="e_count">125</data>
+    </edge>
+    <edge source="n7" target="n21">
+      <data key="e_index">10</data>
+      <data key="e_support">0.00926160872874905</data>
+      <data key="e_confidence">0.345971563981043</data>
+      <data key="e_coverage">0.0267698553666582</data>
+      <data key="e_lift">2.59956898693859</data>
+      <data key="e_count">73</data>
+    </edge>
+    <edge source="n1" target="n12">
+      <data key="e_index">11</data>
+      <data key="e_support">0.0150976909413854</data>
+      <data key="e_confidence">0.5</data>
+      <data key="e_coverage">0.0301953818827709</data>
+      <data key="e_lift">5.97121212121212</data>
+      <data key="e_count">119</data>
+    </edge>
+    <edge source="n1" target="n18">
+      <data key="e_index">12</data>
+      <data key="e_support">0.0112915503679269</data>
+      <data key="e_confidence">0.373949579831933</data>
+      <data key="e_coverage">0.0301953818827709</data>
+      <data key="e_lift">2.55413395860944</data>
+      <data key="e_count">89</data>
+    </edge>
+    <edge source="n15" target="n19">
+      <data key="e_index">13</data>
+      <data key="e_support">0.0117990357777214</data>
+      <data key="e_confidence">0.370517928286853</data>
+      <data key="e_coverage">0.0318447094646029</data>
+      <data key="e_lift">5.48951562172363</data>
+      <data key="e_count">93</data>
+    </edge>
+    <edge source="n15" target="n21">
+      <data key="e_index">14</data>
+      <data key="e_support">0.0152245622938341</data>
+      <data key="e_confidence">0.47808764940239</data>
+      <data key="e_coverage">0.0318447094646029</data>
+      <data key="e_lift">3.59226582706353</data>
+      <data key="e_count">120</data>
+    </edge>
+    <edge source="n0" target="n24">
+      <data key="e_index">15</data>
+      <data key="e_support">0.0190307028672926</data>
+      <data key="e_confidence">0.457317073170732</data>
+      <data key="e_coverage">0.0416138036031464</data>
+      <data key="e_lift">5.70343856128435</data>
+      <data key="e_count">150</data>
+    </edge>
+    <edge source="n8" target="n6">
+      <data key="e_index">16</data>
+      <data key="e_support">0.0347627505709211</data>
+      <data key="e_confidence">0.750684931506849</data>
+      <data key="e_coverage">0.0463080436437452</data>
+      <data key="e_lift">5.19938368201844</data>
+      <data key="e_count">274</data>
+    </edge>
+    <edge source="n19" target="n9">
+      <data key="e_index">17</data>
+      <data key="e_support">0.0180157320477036</data>
+      <data key="e_confidence">0.266917293233083</data>
+      <data key="e_coverage">0.0674955595026643</data>
+      <data key="e_lift">3.24666991552956</data>
+      <data key="e_count">142</data>
+    </edge>
+    <edge source="n19" target="n21">
+      <data key="e_index">18</data>
+      <data key="e_support">0.0334940370464349</data>
+      <data key="e_confidence">0.496240601503759</data>
+      <data key="e_coverage">0.0674955595026643</data>
+      <data key="e_lift">3.72866389042196</data>
+      <data key="e_count">264</data>
+    </edge>
+    <edge source="n21" target="n19">
+      <data key="e_index">19</data>
+      <data key="e_support">0.0334940370464349</data>
+      <data key="e_confidence">0.251668255481411</data>
+      <data key="e_coverage">0.133088048718599</data>
+      <data key="e_lift">3.72866389042196</data>
+      <data key="e_count">264</data>
+    </edge>
+    <edge source="n9" target="n21">
+      <data key="e_index">20</data>
+      <data key="e_support">0.0280385688911444</data>
+      <data key="e_confidence">0.341049382716049</data>
+      <data key="e_coverage">0.0822126363867039</data>
+      <data key="e_lift">2.56258458967388</data>
+      <data key="e_count">221</data>
+    </edge>
+    <edge source="n13" target="n4">
+      <data key="e_index">21</data>
+      <data key="e_support">0.0581070794214666</data>
+      <data key="e_confidence">0.704615384615385</data>
+      <data key="e_coverage">0.0824663790916011</data>
+      <data key="e_lift">6.26130604457549</data>
+      <data key="e_count">458</data>
+    </edge>
+    <edge source="n4" target="n13">
+      <data key="e_index">22</data>
+      <data key="e_support">0.0581070794214666</data>
+      <data key="e_confidence">0.516347237880496</data>
+      <data key="e_coverage">0.112534889621923</data>
+      <data key="e_lift">6.26130604457549</data>
+      <data key="e_count">458</data>
+    </edge>
+    <edge source="n12" target="n18">
+      <data key="e_index">23</data>
+      <data key="e_support">0.0430093884800812</data>
+      <data key="e_confidence">0.513636363636364</data>
+      <data key="e_coverage">0.0837350926160873</data>
+      <data key="e_lift">3.50821648022688</data>
+      <data key="e_count">339</data>
+    </edge>
+    <edge source="n18" target="n12">
+      <data key="e_index">24</data>
+      <data key="e_support">0.0430093884800812</data>
+      <data key="e_confidence">0.293760831889081</data>
+      <data key="e_coverage">0.146409540725704</data>
+      <data key="e_lift">3.50821648022688</data>
+      <data key="e_count">339</data>
+    </edge>
+    <edge source="n16" target="n10">
+      <data key="e_index">25</data>
+      <data key="e_support">0.0922354732301446</data>
+      <data key="e_confidence">0.882281553398058</data>
+      <data key="e_coverage">0.104541994417661</data>
+      <data key="e_lift">3.98975513705307</data>
+      <data key="e_count">727</data>
+    </edge>
+    <edge source="n10" target="n16">
+      <data key="e_index">26</data>
+      <data key="e_support">0.0922354732301446</data>
+      <data key="e_confidence">0.417096959265634</data>
+      <data key="e_coverage">0.22113676731794</data>
+      <data key="e_lift">3.98975513705307</data>
+      <data key="e_count">727</data>
+    </edge>
+    <edge source="n18" target="n23">
+      <data key="e_index">27</data>
+      <data key="e_support">0.058995178888607</data>
+      <data key="e_confidence">0.402946273830156</data>
+      <data key="e_coverage">0.146409540725704</data>
+      <data key="e_lift">2.68926547868695</data>
+      <data key="e_count">465</data>
+    </edge>
+    <edge source="n23" target="n18">
+      <data key="e_index">28</data>
+      <data key="e_support">0.058995178888607</data>
+      <data key="e_confidence">0.393734123624047</data>
+      <data key="e_coverage">0.149835067241817</data>
+      <data key="e_lift">2.68926547868695</data>
+      <data key="e_count">465</data>
+    </edge>
+    <edge source="n13" target="n4">
+      <data key="e_index">29</data>
+      <data key="e_support">0.00532859680284192</data>
+      <data key="e_confidence">0.954545454545455</data>
+      <data key="e_coverage">0.00558233950773915</data>
+      <data key="e_lift">8.48221789484473</data>
+      <data key="e_count">42</data>
+    </edge>
+    <edge source="n22" target="n4">
+      <data key="e_index">29</data>
+      <data key="e_support">0.00532859680284192</data>
+      <data key="e_confidence">0.954545454545455</data>
+      <data key="e_coverage">0.00558233950773915</data>
+      <data key="e_lift">8.48221789484473</data>
+      <data key="e_count">42</data>
+    </edge>
+    <edge source="n4" target="n13">
+      <data key="e_index">30</data>
+      <data key="e_support">0.00532859680284192</data>
+      <data key="e_confidence">0.84</data>
+      <data key="e_coverage">0.00634356762243086</data>
+      <data key="e_lift">10.1859692307692</data>
+      <data key="e_count">42</data>
+    </edge>
+    <edge source="n22" target="n13">
+      <data key="e_index">30</data>
+      <data key="e_support">0.00532859680284192</data>
+      <data key="e_confidence">0.84</data>
+      <data key="e_coverage">0.00634356762243086</data>
+      <data key="e_lift">10.1859692307692</data>
+      <data key="e_count">42</data>
+    </edge>
+    <edge source="n5" target="n23">
+      <data key="e_index">31</data>
+      <data key="e_support">0.00900786602385181</data>
+      <data key="e_confidence">0.806818181818182</data>
+      <data key="e_coverage">0.0111646790154783</data>
+      <data key="e_lift">5.38470864444615</data>
+      <data key="e_count">71</data>
+    </edge>
+    <edge source="n18" target="n23">
+      <data key="e_index">31</data>
+      <data key="e_support">0.00900786602385181</data>
+      <data key="e_confidence">0.806818181818182</data>
+      <data key="e_coverage">0.0111646790154783</data>
+      <data key="e_lift">5.38470864444615</data>
+      <data key="e_count">71</data>
+    </edge>
+    <edge source="n5" target="n18">
+      <data key="e_index">32</data>
+      <data key="e_support">0.00900786602385181</data>
+      <data key="e_confidence">0.89873417721519</data>
+      <data key="e_coverage">0.0100228368434408</data>
+      <data key="e_lift">6.13849461422021</data>
+      <data key="e_count">71</data>
+    </edge>
+    <edge source="n23" target="n18">
+      <data key="e_index">32</data>
+      <data key="e_support">0.00900786602385181</data>
+      <data key="e_confidence">0.89873417721519</data>
+      <data key="e_coverage">0.0100228368434408</data>
+      <data key="e_lift">6.13849461422021</data>
+      <data key="e_count">71</data>
+    </edge>
+    <edge source="n2" target="n6">
+      <data key="e_index">33</data>
+      <data key="e_support">0.00545546815529054</data>
+      <data key="e_confidence">0.754385964912281</data>
+      <data key="e_coverage">0.00723166708957117</data>
+      <data key="e_lift">5.22501772885641</data>
+      <data key="e_count">43</data>
+    </edge>
+    <edge source="n17" target="n6">
+      <data key="e_index">33</data>
+      <data key="e_support">0.00545546815529054</data>
+      <data key="e_confidence">0.754385964912281</data>
+      <data key="e_coverage">0.00723166708957117</data>
+      <data key="e_lift">5.22501772885641</data>
+      <data key="e_count">43</data>
+    </edge>
+    <edge source="n14" target="n10">
+      <data key="e_index">34</data>
+      <data key="e_support">0.00748540979446841</data>
+      <data key="e_confidence">0.921875</data>
+      <data key="e_coverage">0.0081197665567115</data>
+      <data key="e_lift">4.16880020080321</data>
+      <data key="e_count">59</data>
+    </edge>
+    <edge source="n16" target="n10">
+      <data key="e_index">34</data>
+      <data key="e_support">0.00748540979446841</data>
+      <data key="e_confidence">0.921875</data>
+      <data key="e_coverage">0.0081197665567115</data>
+      <data key="e_lift">4.16880020080321</data>
+      <data key="e_count">59</data>
+    </edge>
+    <edge source="n10" target="n16">
+      <data key="e_index">35</data>
+      <data key="e_support">0.00748540979446841</data>
+      <data key="e_confidence">0.472</data>
+      <data key="e_coverage">0.0158589190560771</data>
+      <data key="e_lift">4.51493203883495</data>
+      <data key="e_count">59</data>
+    </edge>
+    <edge source="n14" target="n16">
+      <data key="e_index">35</data>
+      <data key="e_support">0.00748540979446841</data>
+      <data key="e_confidence">0.472</data>
+      <data key="e_coverage">0.0158589190560771</data>
+      <data key="e_lift">4.51493203883495</data>
+      <data key="e_count">59</data>
+    </edge>
+    <edge source="n1" target="n18">
+      <data key="e_index">36</data>
+      <data key="e_support">0.00659731032732809</data>
+      <data key="e_confidence">0.436974789915966</data>
+      <data key="e_coverage">0.0150976909413854</data>
+      <data key="e_lift">2.98460597410541</data>
+      <data key="e_count">52</data>
+    </edge>
+    <edge source="n12" target="n18">
+      <data key="e_index">36</data>
+      <data key="e_support">0.00659731032732809</data>
+      <data key="e_confidence">0.436974789915966</data>
+      <data key="e_coverage">0.0150976909413854</data>
+      <data key="e_lift">2.98460597410541</data>
+      <data key="e_count">52</data>
+    </edge>
+    <edge source="n1" target="n12">
+      <data key="e_index">37</data>
+      <data key="e_support">0.00659731032732809</data>
+      <data key="e_confidence">0.584269662921348</data>
+      <data key="e_coverage">0.0112915503679269</data>
+      <data key="e_lift">6.97759618658495</data>
+      <data key="e_count">52</data>
+    </edge>
+    <edge source="n18" target="n12">
+      <data key="e_index">37</data>
+      <data key="e_support">0.00659731032732809</data>
+      <data key="e_confidence">0.584269662921348</data>
+      <data key="e_coverage">0.0112915503679269</data>
+      <data key="e_lift">6.97759618658495</data>
+      <data key="e_count">52</data>
+    </edge>
+    <edge source="n15" target="n21">
+      <data key="e_index">38</data>
+      <data key="e_support">0.00558233950773915</data>
+      <data key="e_confidence">0.473118279569892</data>
+      <data key="e_coverage">0.0117990357777214</data>
+      <data key="e_lift">3.55492686326968</data>
+      <data key="e_count">44</data>
+    </edge>
+    <edge source="n19" target="n21">
+      <data key="e_index">38</data>
+      <data key="e_support">0.00558233950773915</data>
+      <data key="e_confidence">0.473118279569892</data>
+      <data key="e_coverage">0.0117990357777214</data>
+      <data key="e_lift">3.55492686326968</data>
+      <data key="e_count">44</data>
+    </edge>
+    <edge source="n15" target="n19">
+      <data key="e_index">39</data>
+      <data key="e_support">0.00558233950773915</data>
+      <data key="e_confidence">0.366666666666667</data>
+      <data key="e_coverage">0.0152245622938341</data>
+      <data key="e_lift">5.43245614035088</data>
+      <data key="e_count">44</data>
+    </edge>
+    <edge source="n21" target="n19">
+      <data key="e_index">39</data>
+      <data key="e_support">0.00558233950773915</data>
+      <data key="e_confidence">0.366666666666667</data>
+      <data key="e_coverage">0.0152245622938341</data>
+      <data key="e_lift">5.43245614035088</data>
+      <data key="e_count">44</data>
+    </edge>
+    <edge source="n0" target="n24">
+      <data key="e_index">40</data>
+      <data key="e_support">0.00634356762243085</data>
+      <data key="e_confidence">0.357142857142857</data>
+      <data key="e_coverage">0.0177619893428064</data>
+      <data key="e_lift">4.45411392405063</data>
+      <data key="e_count">50</data>
+    </edge>
+    <edge source="n3" target="n24">
+      <data key="e_index">40</data>
+      <data key="e_support">0.00634356762243085</data>
+      <data key="e_confidence">0.357142857142857</data>
+      <data key="e_coverage">0.0177619893428064</data>
+      <data key="e_lift">4.45411392405063</data>
+      <data key="e_count">50</data>
+    </edge>
+    <edge source="n8" target="n6">
+      <data key="e_index">41</data>
+      <data key="e_support">0.014590205531591</data>
+      <data key="e_confidence">0.839416058394161</data>
+      <data key="e_coverage">0.0173813752854605</data>
+      <data key="e_lift">5.81395199671597</data>
+      <data key="e_count">115</data>
+    </edge>
+    <edge source="n17" target="n6">
+      <data key="e_index">41</data>
+      <data key="e_support">0.014590205531591</data>
+      <data key="e_confidence">0.839416058394161</data>
+      <data key="e_coverage">0.0173813752854605</data>
+      <data key="e_lift">5.81395199671597</data>
+      <data key="e_count">115</data>
+    </edge>
+    <edge source="n6" target="n8">
+      <data key="e_index">42</data>
+      <data key="e_support">0.014590205531591</data>
+      <data key="e_confidence">0.278450363196126</data>
+      <data key="e_coverage">0.0523978685612789</data>
+      <data key="e_lift">6.01300208962155</data>
+      <data key="e_count">115</data>
+    </edge>
+    <edge source="n17" target="n8">
+      <data key="e_index">42</data>
+      <data key="e_support">0.014590205531591</data>
+      <data key="e_confidence">0.278450363196126</data>
+      <data key="e_coverage">0.0523978685612789</data>
+      <data key="e_lift">6.01300208962155</data>
+      <data key="e_count">115</data>
+    </edge>
+    <edge source="n3" target="n6">
+      <data key="e_index">43</data>
+      <data key="e_support">0.00824663790916011</data>
+      <data key="e_confidence">0.503875968992248</data>
+      <data key="e_coverage">0.0163664044658716</data>
+      <data key="e_lift">3.48993882917126</data>
+      <data key="e_count">65</data>
+    </edge>
+    <edge source="n8" target="n6">
+      <data key="e_index">43</data>
+      <data key="e_support">0.00824663790916011</data>
+      <data key="e_confidence">0.503875968992248</data>
+      <data key="e_coverage">0.0163664044658716</data>
+      <data key="e_lift">3.48993882917126</data>
+      <data key="e_count">65</data>
+    </edge>
+    <edge source="n9" target="n21">
+      <data key="e_index">44</data>
+      <data key="e_support">0.00824663790916011</data>
+      <data key="e_confidence">0.457746478873239</data>
+      <data key="e_coverage">0.0180157320477036</data>
+      <data key="e_lift">3.43942587843553</data>
+      <data key="e_count">65</data>
+    </edge>
+    <edge source="n19" target="n21">
+      <data key="e_index">44</data>
+      <data key="e_support">0.00824663790916011</data>
+      <data key="e_confidence">0.457746478873239</data>
+      <data key="e_coverage">0.0180157320477036</data>
+      <data key="e_lift">3.43942587843553</data>
+      <data key="e_count">65</data>
+    </edge>
+    <edge source="n9" target="n19">
+      <data key="e_index">45</data>
+      <data key="e_support">0.00824663790916011</data>
+      <data key="e_confidence">0.294117647058824</data>
+      <data key="e_coverage">0.0280385688911444</data>
+      <data key="e_lift">4.35758513931889</data>
+      <data key="e_count">65</data>
+    </edge>
+    <edge source="n21" target="n19">
+      <data key="e_index">45</data>
+      <data key="e_support">0.00824663790916011</data>
+      <data key="e_confidence">0.294117647058824</data>
+      <data key="e_coverage">0.0280385688911444</data>
+      <data key="e_lift">4.35758513931889</data>
+      <data key="e_count">65</data>
+    </edge>
+    <edge source="n3" target="n21">
+      <data key="e_index">46</data>
+      <data key="e_support">0.00647043897487947</data>
+      <data key="e_confidence">0.307228915662651</data>
+      <data key="e_coverage">0.0210606445064704</data>
+      <data key="e_lift">2.30846359700001</data>
+      <data key="e_count">51</data>
+    </edge>
+    <edge source="n19" target="n21">
+      <data key="e_index">46</data>
+      <data key="e_support">0.00647043897487947</data>
+      <data key="e_confidence">0.307228915662651</data>
+      <data key="e_coverage">0.0210606445064704</data>
+      <data key="e_lift">2.30846359700001</data>
+      <data key="e_count">51</data>
+    </edge>
+    <edge source="n9" target="n10">
+      <data key="e_index">47</data>
+      <data key="e_support">0.00647043897487947</data>
+      <data key="e_confidence">0.864406779661017</data>
+      <data key="e_coverage">0.00748540979446841</data>
+      <data key="e_lift">3.90892383091689</data>
+      <data key="e_count">51</data>
+    </edge>
+    <edge source="n16" target="n10">
+      <data key="e_index">47</data>
+      <data key="e_support">0.00647043897487947</data>
+      <data key="e_confidence">0.864406779661017</data>
+      <data key="e_coverage">0.00748540979446841</data>
+      <data key="e_lift">3.90892383091689</data>
+      <data key="e_count">51</data>
+    </edge>
+    <edge source="n9" target="n16">
+      <data key="e_index">48</data>
+      <data key="e_support">0.00647043897487947</data>
+      <data key="e_confidence">0.372262773722628</data>
+      <data key="e_coverage">0.0173813752854605</data>
+      <data key="e_lift">3.5608922117497</data>
+      <data key="e_count">51</data>
+    </edge>
+    <edge source="n10" target="n16">
+      <data key="e_index">48</data>
+      <data key="e_support">0.00647043897487947</data>
+      <data key="e_confidence">0.372262773722628</data>
+      <data key="e_coverage">0.0173813752854605</data>
+      <data key="e_lift">3.5608922117497</data>
+      <data key="e_count">51</data>
+    </edge>
+    <edge source="n13" target="n4">
+      <data key="e_index">49</data>
+      <data key="e_support">0.00570921086018777</data>
+      <data key="e_confidence">0.517241379310345</data>
+      <data key="e_coverage">0.0110378076630297</data>
+      <data key="e_lift">4.59627570656611</data>
+      <data key="e_count">45</data>
+    </edge>
+    <edge source="n17" target="n4">
+      <data key="e_index">49</data>
+      <data key="e_support">0.00570921086018777</data>
+      <data key="e_confidence">0.517241379310345</data>
+      <data key="e_coverage">0.0110378076630297</data>
+      <data key="e_lift">4.59627570656611</data>
+      <data key="e_count">45</data>
+    </edge>
+    <edge source="n4" target="n13">
+      <data key="e_index">50</data>
+      <data key="e_support">0.00570921086018777</data>
+      <data key="e_confidence">0.346153846153846</data>
+      <data key="e_coverage">0.0164932758183202</data>
+      <data key="e_lift">4.19751479289941</data>
+      <data key="e_count">45</data>
+    </edge>
+    <edge source="n17" target="n13">
+      <data key="e_index">50</data>
+      <data key="e_support">0.00570921086018777</data>
+      <data key="e_confidence">0.346153846153846</data>
+      <data key="e_coverage">0.0164932758183202</data>
+      <data key="e_lift">4.19751479289941</data>
+      <data key="e_count">45</data>
+    </edge>
+    <edge source="n3" target="n4">
+      <data key="e_index">51</data>
+      <data key="e_support">0.022202486678508</data>
+      <data key="e_confidence">0.620567375886525</data>
+      <data key="e_coverage">0.03577772139051</data>
+      <data key="e_lift">5.51444425787778</data>
+      <data key="e_count">175</data>
+    </edge>
+    <edge source="n13" target="n4">
+      <data key="e_index">51</data>
+      <data key="e_support">0.022202486678508</data>
+      <data key="e_confidence">0.620567375886525</data>
+      <data key="e_coverage">0.03577772139051</data>
+      <data key="e_lift">5.51444425787778</data>
+      <data key="e_count">175</data>
+    </edge>
+    <edge source="n3" target="n13">
+      <data key="e_index">52</data>
+      <data key="e_support">0.022202486678508</data>
+      <data key="e_confidence">0.441919191919192</data>
+      <data key="e_coverage">0.0502410555696524</data>
+      <data key="e_lift">5.35878010878011</data>
+      <data key="e_count">175</data>
+    </edge>
+    <edge source="n4" target="n13">
+      <data key="e_index">52</data>
+      <data key="e_support">0.022202486678508</data>
+      <data key="e_confidence">0.441919191919192</data>
+      <data key="e_coverage">0.0502410555696524</data>
+      <data key="e_lift">5.35878010878011</data>
+      <data key="e_count">175</data>
+    </edge>
+    <edge source="n12" target="n18">
+      <data key="e_index">53</data>
+      <data key="e_support">0.0052017254503933</data>
+      <data key="e_confidence">0.418367346938776</data>
+      <data key="e_coverage">0.0124333925399645</data>
+      <data key="e_lift">2.85751423619708</data>
+      <data key="e_count">41</data>
+    </edge>
+    <edge source="n21" target="n18">
+      <data key="e_index">53</data>
+      <data key="e_support">0.0052017254503933</data>
+      <data key="e_confidence">0.418367346938776</data>
+      <data key="e_coverage">0.0124333925399645</data>
+      <data key="e_lift">2.85751423619708</data>
+      <data key="e_count">41</data>
+    </edge>
+    <edge source="n18" target="n12">
+      <data key="e_index">54</data>
+      <data key="e_support">0.0052017254503933</data>
+      <data key="e_confidence">0.37962962962963</data>
+      <data key="e_coverage">0.0137021060644506</data>
+      <data key="e_lift">4.53369809203143</data>
+      <data key="e_count">41</data>
+    </edge>
+    <edge source="n21" target="n12">
+      <data key="e_index">54</data>
+      <data key="e_support">0.0052017254503933</data>
+      <data key="e_confidence">0.37962962962963</data>
+      <data key="e_coverage">0.0137021060644506</data>
+      <data key="e_lift">4.53369809203143</data>
+      <data key="e_count">41</data>
+    </edge>
+    <edge source="n12" target="n18">
+      <data key="e_index">55</data>
+      <data key="e_support">0.010276579548338</data>
+      <data key="e_confidence">0.778846153846154</data>
+      <data key="e_coverage">0.0131946206546562</data>
+      <data key="e_lift">5.31964071457139</data>
+      <data key="e_count">81</data>
+    </edge>
+    <edge source="n23" target="n18">
+      <data key="e_index">55</data>
+      <data key="e_support">0.010276579548338</data>
+      <data key="e_confidence">0.778846153846154</data>
+      <data key="e_coverage">0.0131946206546562</data>
+      <data key="e_lift">5.31964071457139</data>
+      <data key="e_count">81</data>
+    </edge>
+    <edge source="n3" target="n18">
+      <data key="e_index">56</data>
+      <data key="e_support">0.0123065211875159</data>
+      <data key="e_confidence">0.367424242424242</data>
+      <data key="e_coverage">0.0334940370464349</data>
+      <data key="e_lift">2.50956488629799</data>
+      <data key="e_count">97</data>
+    </edge>
+    <edge source="n12" target="n18">
+      <data key="e_index">56</data>
+      <data key="e_support">0.0123065211875159</data>
+      <data key="e_confidence">0.367424242424242</data>
+      <data key="e_coverage">0.0334940370464349</data>
+      <data key="e_lift">2.50956488629799</data>
+      <data key="e_count">97</data>
+    </edge>
+    <edge source="n3" target="n17">
+      <data key="e_index">57</data>
+      <data key="e_support">0.0517635117990358</data>
+      <data key="e_confidence">0.632558139534884</data>
+      <data key="e_coverage">0.081832022329358</data>
+      <data key="e_lift">2.04169666495248</data>
+      <data key="e_count">408</data>
+    </edge>
+    <edge source="n20" target="n17">
+      <data key="e_index">57</data>
+      <data key="e_support">0.0517635117990358</data>
+      <data key="e_confidence">0.632558139534884</data>
+      <data key="e_coverage">0.081832022329358</data>
+      <data key="e_lift">2.04169666495248</data>
+      <data key="e_count">408</data>
+    </edge>
+    <edge source="n6" target="n10">
+      <data key="e_index">58</data>
+      <data key="e_support">0.0170007612281147</data>
+      <data key="e_confidence">0.937062937062937</data>
+      <data key="e_coverage">0.0181426034001522</data>
+      <data key="e_lift">4.2374813941079</data>
+      <data key="e_count">134</data>
+    </edge>
+    <edge source="n16" target="n10">
+      <data key="e_index">58</data>
+      <data key="e_support">0.0170007612281147</data>
+      <data key="e_confidence">0.937062937062937</data>
+      <data key="e_coverage">0.0181426034001522</data>
+      <data key="e_lift">4.2374813941079</data>
+      <data key="e_count">134</data>
+    </edge>
+    <edge source="n6" target="n16">
+      <data key="e_index">59</data>
+      <data key="e_support">0.0170007612281147</data>
+      <data key="e_confidence">0.408536585365854</data>
+      <data key="e_coverage">0.0416138036031464</data>
+      <data key="e_lift">3.90787058962823</data>
+      <data key="e_count">134</data>
+    </edge>
+    <edge source="n10" target="n16">
+      <data key="e_index">59</data>
+      <data key="e_support">0.0170007612281147</data>
+      <data key="e_confidence">0.408536585365854</data>
+      <data key="e_coverage">0.0416138036031464</data>
+      <data key="e_lift">3.90787058962823</data>
+      <data key="e_count">134</data>
+    </edge>
+    <edge source="n3" target="n10">
+      <data key="e_index">60</data>
+      <data key="e_support">0.0293072824156306</data>
+      <data key="e_confidence">0.791095890410959</data>
+      <data key="e_coverage">0.0370464349149962</data>
+      <data key="e_lift">3.5774055124608</data>
+      <data key="e_count">231</data>
+    </edge>
+    <edge source="n16" target="n10">
+      <data key="e_index">60</data>
+      <data key="e_support">0.0293072824156306</data>
+      <data key="e_confidence">0.791095890410959</data>
+      <data key="e_coverage">0.0370464349149962</data>
+      <data key="e_lift">3.5774055124608</data>
+      <data key="e_count">231</data>
+    </edge>
+    <edge source="n3" target="n16">
+      <data key="e_index">61</data>
+      <data key="e_support">0.0293072824156306</data>
+      <data key="e_confidence">0.29539641943734</data>
+      <data key="e_coverage">0.0992133976148186</data>
+      <data key="e_lift">2.82562448787028</data>
+      <data key="e_count">231</data>
+    </edge>
+    <edge source="n10" target="n16">
+      <data key="e_index">61</data>
+      <data key="e_support">0.0293072824156306</data>
+      <data key="e_confidence">0.29539641943734</data>
+      <data key="e_coverage">0.0992133976148186</data>
+      <data key="e_lift">2.82562448787028</data>
+      <data key="e_count">231</data>
+    </edge>
+  </graph>
+</graphml>
